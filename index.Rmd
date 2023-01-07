@@ -8,7 +8,7 @@ output_dir: libs
 ---
 
 
-# **Mapa de Riesgo de Transmision del Dengue**
+# **Mapas del Riesgo de Transmision del Dengue**
 
 
 ```{r}
@@ -37,3 +37,5 @@ mex_link |>
     mapview::mapview(popup = "Estado",
                      legend = FALSE)
 ```
+
+> Con un click se proporcionan los mapas de riesgo de transmisión de dengue de los estados. Los estado en color azul tiene definido su riesdo de transmisión.
