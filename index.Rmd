@@ -1,5 +1,5 @@
 ---
-title: "Programa Nacional de Prevención y Control de las Arbovirosis de México | CENAPRECE"
+title: "Programa Nacional de Prevención y Control de las ETVs de México | CENAPRECE"
 output: 
   flexdashboard::flex_dashboard:
       theme: united
@@ -8,8 +8,11 @@ output_dir: libs
 ---
 
 
-# **Mapas del Riesgo de Transmision del Dengue**
+# **Programa de Prevención y Control de las Arbovirosis**
 
+## Column {.tabset}
+
+### [**Mapas de Riesgo de Transmisión**]{style="color:#990000"}
 
 ```{r}
 # Step 1. load the AGEE ####
@@ -38,4 +41,10 @@ mex_link |>
                      legend = FALSE)
 ```
 
-> Con un click se proporcionan los mapas de riesgo de transmisión de dengue de los estados. Los estado en color azul tiene definido su riesdo de transmisión.
+> Con un click se proporcionan los mapas de riesgo de transmisión de dengue de los estados. Los estado en color azul tiene definido su riesdo de transmisión y el resto está en construción.
+
+### [**Dashboard de dengue**]{style="color:#990000"}
+
+### [**Cadenas de Transmisión**]{style="color:#990000"}
+
+
