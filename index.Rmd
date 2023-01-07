@@ -1,0 +1,8 @@
+---
+title: "Programa de Prevención y Control del Dengue de Veracruz"
+output: 
+  flexdashboard::flex_dashboard:
+      theme: united
+      social: ["twitter", "facebook", "menu", "github"]
+output_dir: libs      
+---
