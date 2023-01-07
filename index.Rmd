@@ -1,8 +1,39 @@
 ---
-title: "Programa de Prevención y Control del Dengue de Veracruz"
+title: "Programa Nacional de Prevención y Control de las Arbovirosis de México | CENAPRECE"
 output: 
   flexdashboard::flex_dashboard:
       theme: united
       social: ["twitter", "facebook", "menu", "github"]
 output_dir: libs      
 ---
+
+
+# **Mapa de Riesgo de Transmision del Dengue**
+
+
+```{r}
+# Step 1. load the AGEE ####
+mex <- rgeomex::AGEE_inegi19_mx
+
+# Step 3. make the tible link ####
+link <- tibble::tibble(CVE_ENT = c("31", "30", "23","20", "04"),
+                       link = c("https://beautiful-haupia-810701.netlify.app/",
+                               "https://zippy-bunny-bdd8c7.netlify.app/",
+                               "https://helpful-pegasus-ba8bb9.netlify.app/",
+                               "https://merry-figolla-08f5bf.netlify.app/",
+                               "https://phenomenal-hotteok-02e188.netlify.app/"))
+
+# Step 3. left joint ####
+mex_link <- dplyr::left_join(x = link,
+                             y = mex,
+                             by = "CVE_ENT") |>
+    dplyr::mutate(Estado = paste0(": <a href=", 
+                                  link,">", 
+                                  NOMGEO, "</a>")) |>
+    as.data.frame() |>
+    sf::st_set_geometry(value = "geometry") 
+
+mex_link |>
+    mapview::mapview(popup = "Estado",
+                     legend = FALSE)
+```
