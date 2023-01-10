@@ -7,7 +7,6 @@ output:
 output_dir: libs      
 ---
 
-
 # **Programa de Prevención y Control de las Arbovirosis**
 
 ## Column {.tabset}
@@ -45,6 +44,59 @@ mex_link |>
 
 ### [**Dashboard de dengue**]{style="color:#990000"}
 
+### [**Distribución del Dengue**]{style="color:#990000"}
+
+```{r}
+# Step 1. load the dengue dataset ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+
+# Step 2. 
+z <- z |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::mutate(ESTATUS_CASO = ifelse(ESTATUS_CASO == 1,
+                                   "Probable",
+                                   "Confirmado"))
+
+confirmados <- z |>
+    dplyr::filter(ESTATUS_CASO == "Confirmado")
+probables <- z |>
+    dplyr::filter(ESTATUS_CASO == "Probable")
+
+serotypo_1 <- z |>
+    dplyr::filter(ESTATUS_CASO == "Confirmado") |>
+    dplyr::filter(DENGUE_SER_TRIPLEX == 1)
+serotypo_2 <- z |>
+    dplyr::filter(ESTATUS_CASO == "Confirmado") |>
+    dplyr::filter(DENGUE_SER_TRIPLEX == 2)
+serotypo_3 <- z |>
+    dplyr::filter(ESTATUS_CASO == "Confirmado") |>
+    dplyr::filter(DENGUE_SER_TRIPLEX == 3)
+serotypo_4 <- z |>
+    dplyr::filter(ESTATUS_CASO == "Confirmado") |>
+    dplyr::filter(DENGUE_SER_TRIPLEX == 4)
+
+##############
+mapview::mapview(probables,
+                 col.regions = "#484848",
+                 layer.name = "Probables") +
+    mapview::mapview(confirmados,
+                     #col.regions = "#E01E5A",
+                     layer.name = "Positivos") +
+    #mapview::mapview(serotypo_1,
+    #                 #col.regions = "#E01E5A",
+    #                 layer.name = "Confirmados") +
+    mapview::mapview(serotypo_3,
+                     col.regions = "#2EB67D",
+                     layer.name = "DENV-2") +
+    mapview::mapview(serotypo_3,
+                     col.regions = "#E01E5A",
+                     layer.name = "DENV-3") +
+    mapview::mapview(serotypo_4,
+                     col.regions = "#ECB22E",
+                     layer.name = "DENV-4")
+```
+
+
 ### [**Cadenas de Transmisión**]{style="color:#990000"}
-
-
