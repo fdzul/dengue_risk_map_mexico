@@ -64,16 +64,16 @@ confirmados <- z |>
 probables <- z |>
     dplyr::filter(ESTATUS_CASO == "Probable")
 
-serotypo_1 <- z |>
+serotype_1 <- z |>
     dplyr::filter(ESTATUS_CASO == "Confirmado") |>
     dplyr::filter(DENGUE_SER_TRIPLEX == 1)
-serotypo_2 <- z |>
+serotype_2 <- z |>
     dplyr::filter(ESTATUS_CASO == "Confirmado") |>
     dplyr::filter(DENGUE_SER_TRIPLEX == 2)
-serotypo_3 <- z |>
+serotype_3 <- z |>
     dplyr::filter(ESTATUS_CASO == "Confirmado") |>
     dplyr::filter(DENGUE_SER_TRIPLEX == 3)
-serotypo_4 <- z |>
+serotype_4 <- z |>
     dplyr::filter(ESTATUS_CASO == "Confirmado") |>
     dplyr::filter(DENGUE_SER_TRIPLEX == 4)
 
@@ -87,13 +87,13 @@ mapview::mapview(probables,
     #mapview::mapview(serotypo_1,
     #                 #col.regions = "#E01E5A",
     #                 layer.name = "Confirmados") +
-    mapview::mapview(serotypo_2,
+    mapview::mapview(serotype_2,
                      col.regions = "#2EB67D",
                      layer.name = "DENV-2") +
-    mapview::mapview(serotypo_3,
+    mapview::mapview(serotype_3,
                      col.regions = "#E01E5A",
                      layer.name = "DENV-3") +
-    mapview::mapview(serotypo_4,
+    mapview::mapview(serotype_4,
                      col.regions = "#ECB22E",
                      layer.name = "DENV-4")
 ```
