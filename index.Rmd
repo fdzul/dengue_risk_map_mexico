@@ -87,7 +87,7 @@ mapview::mapview(probables,
     #mapview::mapview(serotypo_1,
     #                 #col.regions = "#E01E5A",
     #                 layer.name = "Confirmados") +
-    mapview::mapview(serotypo_3,
+    mapview::mapview(serotypo_2,
                      col.regions = "#2EB67D",
                      layer.name = "DENV-2") +
     mapview::mapview(serotypo_3,
