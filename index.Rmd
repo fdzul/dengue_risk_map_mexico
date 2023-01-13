@@ -18,12 +18,13 @@ output_dir: libs
 mex <- rgeomex::AGEE_inegi19_mx
 
 # Step 3. make the tible link ####
-link <- tibble::tibble(CVE_ENT = c("31", "30", "23","20", "04"),
+link <- tibble::tibble(CVE_ENT = c("31", "30", "23","20", "04", "17"),
                        link = c("https://beautiful-haupia-810701.netlify.app/",
                                "https://zippy-bunny-bdd8c7.netlify.app/",
                                "https://helpful-pegasus-ba8bb9.netlify.app/",
                                "https://merry-figolla-08f5bf.netlify.app/",
-                               "https://phenomenal-hotteok-02e188.netlify.app/"))
+                               "https://phenomenal-hotteok-02e188.netlify.app/",
+                               "https://glistening-griffin-b8023f.netlify.app/"))
 
 # Step 3. left joint ####
 mex_link <- dplyr::left_join(x = link,
@@ -40,7 +41,7 @@ mex_link |>
                      legend = FALSE)
 ```
 
-> Con un click se proporcionan los mapas de riesgo de transmisión de dengue de los estados. Los estado en color azul tiene definido su riesdo de transmisión y el resto está en construción.
+> Con un click se proporcionan los mapas de riesgo de transmisión de dengue de los estados. Los estados en color azul tiene definido su riesdo de transmisión y el resto está en construción.
 
 ### [**Dashboard de dengue**]{style="color:#990000"}
 
