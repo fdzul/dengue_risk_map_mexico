@@ -114,9 +114,9 @@ mapview::mapview(probables,
                      layer.name = "DENV-4")
 ```
 
-### [**Cadenas de Transmisión**]{style="color:#990000"}
+### [**Cadenas de Transmisión (Confirmados)**]{style="color:#990000"}
 
-```{r cadenas_transmision}
+```{r cadenas_transmision_confirmado}
 # Step 1. load the dengue dataset ####
 
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
@@ -134,3 +134,28 @@ denhotspots::transmission_chains_map(geocoded_dataset = z,
                                      locality = NULL,
                                      dengue_cases = "Confirmado")
 ```
+
+
+### [**Cadenas de Transmisión (Probables)**]{style="color:#990000"}
+
+```{r cadenas_transmision_probable}
+# Step 1. load the dengue dataset ####
+
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+library(magrittr)
+denhotspots::transmission_chains_map(geocoded_dataset = z,
+                                     cve_edo = "31",
+                                     locality = NULL,
+                                     dengue_cases = "Probable")
+```
+
+
+
