@@ -49,7 +49,16 @@ mex_link |>
 
 ```{r}
 # Step 1. load the dengue dataset ####
-load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
 
 
 # Step 2. 
@@ -80,22 +89,28 @@ serotype_4 <- z |>
 
 ##############
 mapview::mapview(probables,
-                 col.regions = "#484848",
+                 col.regions = "#898F9C",
+                 color = "white",
                  layer.name = "Probables") +
     mapview::mapview(confirmados,
-                     #col.regions = "#E01E5A",
+                     col.regions = "#4267B2",
+                     color = "white",
                      layer.name = "Positivos") +
-    #mapview::mapview(serotypo_1,
-    #                 #col.regions = "#E01E5A",
-    #                 layer.name = "Confirmados") +
+    mapview::mapview(serotype_1,
+                     col.regions = "#36C5F0",
+                     color = "white",
+                     layer.name = "DENV-1") +
     mapview::mapview(serotype_2,
                      col.regions = "#2EB67D",
+                     color = "white",
                      layer.name = "DENV-2") +
     mapview::mapview(serotype_3,
                      col.regions = "#E01E5A",
+                     color = "white",
                      layer.name = "DENV-3") +
     mapview::mapview(serotype_4,
-                     col.regions = "#ECB22E",
+                     col.regions = "#FC642D",#"#ECB22E",
+                     color = "white",
                      layer.name = "DENV-4")
 ```
 
