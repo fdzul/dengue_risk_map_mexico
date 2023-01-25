@@ -110,7 +110,7 @@ mex_link |>
 #### **<span style="color:blue"> Treemap de casos confirmados </span>**
 ```{r treemap_national, out.width="100%", out.height="100%"}
 x  |>
-    dplyr::filter(ANO == 2022)  |>
+    dplyr::filter(ANO == 2023)  |>
     dplyr::filter(!DES_EDO_RES %in% c("OTROS PAISES", 
                                       "OTROS PAISES DE LATINOAMERICA",
                                       "ESTADOS UNIDOS DE NORTEAMERICA"))  |>
