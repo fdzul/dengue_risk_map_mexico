@@ -34,6 +34,8 @@ if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     # .1 dengue dataset
     source("~/Dropbox/r_developments/r_new_functions/3.Functions/heatmap_confirmados.R")
     source("~/Dropbox/r_developments/r_new_functions/3.Functions/heatmap_hospitalizados.R")
+  source("~/Library/CloudStorage/Dropbox/r_developments/r_new_functions/3.Functions/boldenr/heatmap_dengue.R")
+
     source("~/Dropbox/r_developments/r_new_functions/3.Functions/static_bump_map.R")
     
     
@@ -158,16 +160,17 @@ boldenr::plot_state_serotype(dataset = x,
 </div>
 
 </div>
-#### **<span style="color:blue"> Casos confirmados por semana </span>**
-```{r casos_semana}
+
+#### **<span style="color:blue"> Casos Confirmados por Estado </span>**
+
+```{r heatmap_confirmados_state}
 heatmap_confirmados(dataset = x, 
                     year = 2023, 
                     size_text = 3, 
                     EDO = TRUE)
 ```
 
-
-#### **<span style="color:blue"> Casos Confirmados </span>**
+#### **<span style="color:blue"> Casos Confirmados por Estado </span>**
 ```{r bumpmap_national_2023, out.width="100%", out.height="100%"}
 library(dplyr)
 static_bump_map(dataset = x,
@@ -180,6 +183,26 @@ static_bump_map(dataset = x,
                 line_size = 1.5,
                 pal_vir = "viridis")
 ```
+
+
+#### **<span style="color:blue"> Casos Confirmados por Municipio </span>**
+```{r heatmap_confirmados_mun}
+heatmap_dengue(dataset = x,
+               state = NULL,
+               year = "2023",
+               hospitalizados = FALSE,
+               status = 2)
+```
+
+
+#### **<span style="color:blue"> Casos Hospitalizados por Municipio </span>**
+```{r heatmap_hospitalizados_mun}
+heatmap_dengue(dataset = x,
+               state = NULL,
+               year = "2023",
+               hospitalizados = TRUE)
+```
+
 </div>
 
 </body>
