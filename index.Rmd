@@ -37,6 +37,9 @@ if(as.vector(Sys.info()["sysname"]) == "Darwin"){
   source("~/Library/CloudStorage/Dropbox/r_developments/r_new_functions/3.Functions/boldenr/heatmap_dengue.R")
 
     source("~/Dropbox/r_developments/r_new_functions/3.Functions/static_bump_map.R")
+  
+  source("~/Library/CloudStorage/Dropbox/r_developments/r_new_functions/3.Functions/boldenr/epidemiological_channel.R")
+
     
     
   
@@ -201,6 +204,12 @@ heatmap_dengue(dataset = x,
                state = NULL,
                year = "2023",
                hospitalizados = TRUE)
+```
+
+#### **<span style="color:blue"> Canal Epidemiológico por Estado </span>**
+
+```{r epidemiological_channel_by_state}
+epidemiological_channel(data = x)
 ```
 
 </div>
